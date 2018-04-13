@@ -58,7 +58,7 @@ def cnn_rnn_model(input_dim, filters, kernel_size, conv_stride,
     bn_cnn = BatchNormalization(name='bn_conv_1d')(conv_1d)
     # Add a recurrent layer
     simp_rnn = SimpleRNN(units, activation='relu',
-        return_sequences=True, implementation=2, name='rnn')(bn_cnn)
+        return_sequences=True, name='rnn')(bn_cnn)
     # DONE: Add batch normalization
     bn_rnn = BatchNormalization(name='bn_rnn_1d')(simp_rnn)
     # DONE: Add a TimeDistributed(Dense(output_dim)) layer
